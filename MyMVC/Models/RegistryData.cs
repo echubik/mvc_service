@@ -1,22 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace MyMVC.Models
+namespace MyMVC.Models;
+
+public class RegistryRequestBody
 {
-    public class RegistryRequestBody
-    {
-        [BindRequired]
-        public List<string> idPat { get; set; }
+    [BindRequired]
+    public List<string> IdPat { get; set; }
 
-        [BindRequired]
-        public List<string> diagnosis { get; set; }
-    }
+    [BindRequired]
+    public List<string> Diagnosis { get; set; }
+}
 
-    public class RegistryResponseBody
-    {
-        public string name { get; set; }
+public class RegistryResponseBody
+{
+    public string Name { get; set; }
 
-        public string url { get; set; }
+    public string Url { get; set; }
 
-        public string[] diagnosis { get; set; }
-    }
+    public string[] Diagnosis { get; set; }
 }

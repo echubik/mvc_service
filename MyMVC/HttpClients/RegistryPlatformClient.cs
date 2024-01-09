@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
+using MVC.Project.Extensions;
 using RestSharp;
 
-namespace MyMVC.Helpers;
+namespace MVC.Project.HttpClients;
 
 public class RegistryPlatformClient
 {
@@ -17,6 +18,6 @@ public class RegistryPlatformClient
     public async Task<RestResponse> PostRegisterInfo<T>(T body)
     {
         return await client.Request(Method.Post, _appSettings.RegistryPlatform.Uri, "register/info",
-            null, body.ToJson<T>());
+            null, body.ToJson());
     }
 }

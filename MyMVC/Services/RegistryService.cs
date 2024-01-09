@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Options;
-using MyMVC;
-using MyMVC.Helpers;
-using MyMVC.Models;
+using MVC.Project.Extensions;
+using MVC.Project.HttpClients;
+using MVC.Project.Models;
 
-namespace Service.Helpers;
+namespace MVC.Project.Services;
 
 public class RegistryService
 {
@@ -25,8 +25,8 @@ public class RegistryService
             Url = "http://test.zdrav.netrika.ru/release3/registry_platform_ui/diseaseCard/2085/5f9f3d39-ee56-45fd-820b-928999b040b8/integralDiseaseEpicrisis?fromIemkPortal=true"
         };
 
-        return (response.StatusCode == System.Net.HttpStatusCode.OK) && !string.IsNullOrEmpty(response.Content)
-            ? response.Content.ToCertType<RegistryResponseBody[]>()
+        return response.StatusCode == System.Net.HttpStatusCode.OK && !string.IsNullOrEmpty(response.Content)
+            ? response.Content.DeserializeJson<RegistryResponseBody[]>(insensitivePropertyName: true)
             : new[] { fakeResponse };
     }
 }

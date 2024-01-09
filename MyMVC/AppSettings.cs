@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Diagnostics;
-using System.Numerics;
-
-namespace MyMVC;
+﻿namespace MVC.Project;
 
 public class AppSettings
 {

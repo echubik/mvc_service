@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using MyMVC.Models;
-using Service.Helpers;
+using MVC.Project.Models;
+using MVC.Project.Services;
 
-namespace MyMVC.Controllers;
+namespace MVC.Project.Controllers;
 
 [Route("/api")]
 public class RegistryController : Controller

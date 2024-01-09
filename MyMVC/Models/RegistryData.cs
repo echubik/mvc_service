@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace MyMVC.Models;
+namespace MVC.Project.Models;
 
 public class RegistryRequestBody
 {

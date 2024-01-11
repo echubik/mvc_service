@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
+using MVC.Project.Infrastructure.Services;
 using MVC.Project.Models;
-using MVC.Project.Services;
 
 namespace MVC.Project.Controllers;
 
@@ -10,9 +9,9 @@ public class RegistryController : Controller
 {
     private RegistryService registryService;
 
-    public RegistryController(IOptions<AppSettings> options)
+    public RegistryController(RegistryService registryService)
     {
-        registryService = new RegistryService(options);
+        this.registryService = registryService;
     }
 
     [HttpPost("register/info")]

@@ -1,15 +1,15 @@
 ﻿using Microsoft.Extensions.Options;
-using MVC.Project.Extensions;
+using MVC.Project.Infrastructure.Extensions;
 using RestSharp;
 
-namespace MVC.Project.HttpClients;
+namespace MVC.Project.Infrastructure.Clients.HttpClients;
 
-public class RegistryPlatformClient
+public class RegistryHttpClient : IRegistryClient
 {
     private readonly AppSettings _appSettings;
     private HttpRequestHelper client;
 
-    public RegistryPlatformClient(IOptions<AppSettings> options)
+    public RegistryHttpClient(IOptions<AppSettings> options)
     {
         _appSettings = options.Value;
         client = new HttpRequestHelper();

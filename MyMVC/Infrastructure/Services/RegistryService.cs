@@ -1,22 +1,21 @@
-﻿using Microsoft.Extensions.Options;
-using MVC.Project.Extensions;
-using MVC.Project.HttpClients;
+﻿using MVC.Project.Infrastructure.Clients;
+using MVC.Project.Infrastructure.Extensions;
 using MVC.Project.Models;
 
-namespace MVC.Project.Services;
+namespace MVC.Project.Infrastructure.Services;
 
 public class RegistryService
 {
-    private readonly RegistryPlatformClient registryPlatform;
+    private readonly IRegistryClient registryClient;
 
-    public RegistryService(IOptions<AppSettings> options)
+    public RegistryService(IRegistryClient registryClient)
     {
-        registryPlatform = new RegistryPlatformClient(options);
+        this.registryClient = registryClient;
     }
 
     public async Task<RegistryResponseBody[]> GetRegisterInfo(RegistryRequestBody registryRequestBody)
     {
-        var response = await registryPlatform.PostRegisterInfo(registryRequestBody);
+        var response = await registryClient.PostRegisterInfo(registryRequestBody);
 
         var fakeResponse = new RegistryResponseBody()
         {

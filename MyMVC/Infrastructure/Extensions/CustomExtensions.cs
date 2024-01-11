@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace MVC.Project.Extensions;
+namespace MVC.Project.Infrastructure.Extensions;
 
 public static class CustomExtensions
 {

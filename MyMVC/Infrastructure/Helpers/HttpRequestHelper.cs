@@ -1,6 +1,6 @@
 ﻿using RestSharp;
 
-namespace MVC.Project.Infrastructure.Extensions;
+namespace MVC.Project.Infrastructure.Helpers;
 
 public class HttpRequestHelper
 {

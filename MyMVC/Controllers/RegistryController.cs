@@ -4,25 +4,20 @@ using MVC.Project.Models;
 
 namespace MVC.Project.Controllers;
 
-[Route("/api")]
-public class RegistryController : Controller
+[ApiController]
+[Route("api/[controller]")]
+public class RegistryController : ControllerBase
 {
-    private RegistryService registryService;
+    private readonly RegistryService _registryService;
 
     public RegistryController(RegistryService registryService)
     {
-        this.registryService = registryService;
+        _registryService = registryService;
     }
 
     [HttpPost("register/info")]
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
     public async Task<ActionResult<RegistryResponseBody[]>> RegisterInfo([FromBody] RegistryRequestBody registryRequestBody)
-    {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
-
-        return await registryService.GetRegisterInfo(registryRequestBody);
-
-    }
+        =>  await _registryService.GetRegisterInfo(registryRequestBody);
 }

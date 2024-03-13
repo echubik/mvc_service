@@ -6,16 +6,16 @@ namespace MVC.Project.Infrastructure.Services;
 
 public class RegistryService
 {
-    private readonly IRegistryClient registryClient;
+    private readonly IRegistryClient _registryClient;
 
     public RegistryService(IRegistryClient registryClient)
     {
-        this.registryClient = registryClient;
+        _registryClient = registryClient;
     }
 
     public async Task<RegistryResponseBody[]> GetRegisterInfo(RegistryRequestBody registryRequestBody)
     {
-        var response = await registryClient.PostRegisterInfo(registryRequestBody);
+        var response = await _registryClient.PostRegisterInfo(registryRequestBody);
 
         var fakeResponse = new RegistryResponseBody()
         {
